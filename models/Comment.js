@@ -11,15 +11,18 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    commentContent: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    date_created: {
-      type: DataTypes.DATE,
+    comment_text: {
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+      validate: {
+        len: [1]
+      }
     },
+    // date_created: {
+    //   type: DataTypes.DATE,
+    //   allowNull: false,
+    //   defaultValue: DataTypes.NOW,
+    // },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -42,7 +45,7 @@ Comment.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post',
+    modelName: 'comment',
   }
 );
 
