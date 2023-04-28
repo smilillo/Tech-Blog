@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
 router.get('/', (req, res) => {
     Post.findAll({
             attributes: ['id', 'title', 'post_text'],
@@ -26,6 +27,8 @@ router.get('/', (req, res) => {
     })
 });
 
+// get by id route
+
 router.post('/', withAuth, (req, res) => {
     Post.create({
       title: req.body,
@@ -38,6 +41,8 @@ router.post('/', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+
+// update by id route
 
 router.delete('/:id', withAuth, (req, res) => {
   Project.destroy({
