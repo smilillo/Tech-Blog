@@ -1,17 +1,28 @@
-[
+const { Post } = require('../models');
+
+const postData = [
   {
-    "name": "Music Near Me",
-    "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-    "needed_funding": 5000
+    title: "",
+    post_content: "",
+    user_id: 1
   },
   {
-    "name": "The Ultimate Tech Quiz",
-    "description": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
-    "needed_funding": 10000
+  title: "",
+  post_content: "",
+  user_id: 1
   },
   {
-    "name": "Roll 'Em Up",
-    "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
-    "needed_funding": 800
+    title: "",
+    post_content: "",
+    user_id: 1
+  },
+  {
+    title: "",
+    post_content: "",
+    user_id: 1
   }
-]
+];
+
+const seedPosts = () => Comment.bulkCreate(posttData);
+
+module.exports = seedPosts;
