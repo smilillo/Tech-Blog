@@ -2,27 +2,27 @@ const { Post } = require('../models');
 
 const postData = [
   {
-    title: "",
-    post_content: "",
+    title: "Hey",
+    post_text: "this is a post!",
     user_id: 1
   },
   {
-  title: "",
-  post_content: "",
-  user_id: 1
+  title: "Hi",
+  post_text: "this is a post!",
+  user_id: 2
   },
   {
-    title: "",
-    post_content: "",
-    user_id: 1
+    title: "What up",
+    post_text: "this is a post!",
+    user_id: 3
   },
   {
-    title: "",
-    post_content: "",
-    user_id: 1
+    title: "Yooo",
+    post_text: "this is a post!",
+    user_id: 4
   }
 ];
 
-const seedPosts = () => Comment.bulkCreate(posttData);
+const seedPosts = () => Post.bulkCreate(postData);
 
 module.exports = seedPosts;

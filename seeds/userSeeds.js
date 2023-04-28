@@ -1,17 +1,33 @@
-[
+const { User } = require('../models');
+
+const userData = [
   {
-    "name": "Sal",
-    "email": "sal@hotmail.com",
-    "password": "password12345"
+    username: "sofiem",
+    email: "sofiem@email.com",
+    password: "password1"
   },
   {
-    "name": "Lernantino",
-    "email": "lernantino@gmail.com",
-    "password": "password12345"
+    username: "jaimem",
+    email: "jaimem@email.com",
+    password: "password1"
   },
   {
-    "name": "Amiko",
-    "email": "amiko2k20@aol.com",
-    "password": "password12345"
+    username: "ruths",
+    email: "ruths@email.com",
+    password: "password1"
+  },
+  {
+    username: "joshd",
+    email: "joshd@email.com",
+    password: "password1"
+  },
+  {
+    username: "chrisa",
+    email: "chrisa@email.com",
+    password: "password1"
   }
 ]
+
+const seedUsers = () => User.bulkCreate(userData);
+
+module.exports = seedUsers;
