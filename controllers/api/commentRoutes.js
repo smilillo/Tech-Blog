@@ -26,9 +26,8 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     })
 });
-// get by id route
 
-// post route
+// post comment route
 
 router.post('/', withAuth, (req, res) => {
     Comment.create({
@@ -43,10 +42,7 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-// update by id route
-
-
-// delete route
+// delete comment route
 router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {

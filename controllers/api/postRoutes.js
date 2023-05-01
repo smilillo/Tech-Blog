@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
+// get all posts route
 router.get('/', (req, res) => {
     Post.findAll({
             attributes: ['id', 'title', 'post_text'],
@@ -30,6 +30,9 @@ router.get('/', (req, res) => {
 // get by id route
 router.get('/:id', (req, res) => {
     Post.findOne({
+            where: {
+                id: req.params.id
+            },
             attributes: ['id', 'title', 'post_text'],
             include: [{
                 model: User,
@@ -57,6 +60,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// create new post route
 router.post('/', withAuth, (req, res) => {
     Post.create({
       title: req.body,
@@ -71,7 +75,30 @@ router.post('/', withAuth, (req, res) => {
 });
 
 // update by id route
+router.put('/:id', withAuth, (req, res) => {
+    Post.update({
+        title: req.body.title,
+        post_content: req.body.post_content
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(data => {
+        if (!data) {
+          res.status(404).json({ message: 'No post found' });
+          return;
+        }
+        res.json(data);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
+// delete post route
 router.delete('/:id', withAuth, (req, res) => {
   Project.destroy({
       where: {

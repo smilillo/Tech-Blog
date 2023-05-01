@@ -89,8 +89,4 @@ router.post('/logout', (req, res) => {
   }
 });
 
-// update user route
-
-// delete user route
-
 module.exports = router;
