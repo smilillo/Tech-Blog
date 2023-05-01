@@ -28,6 +28,34 @@ router.get('/', (req, res) => {
 });
 
 // get by id route
+router.get('/:id', (req, res) => {
+    Post.findOne({
+            attributes: ['id', 'title', 'post_text'],
+            include: [{
+                model: User,
+                attributes: ['username']
+            },
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'post_id', 'user_id'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            }
+        ]
+    })
+    .then(data => {
+        if (!data) {
+            res.status(404).json({ message: 'No post found'})
+        }
+        res.json(data);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 router.post('/', withAuth, (req, res) => {
     Post.create({
