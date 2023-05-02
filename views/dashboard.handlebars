@@ -4,6 +4,9 @@
     {{#each posts as |post|}}
         {{> post_info post}}
     {{/each}}
+    {{#each comments as |comment|}}
+        {{> comments comment}}
+    {{/each}}
 </section>
 {{else}}
 <div>No posts available</div>
@@ -11,4 +14,4 @@
 
 <button type="submit" class="button" href="/dashboard/new">+ New Post</button>
 
-<script src="../public/js/new-post.js"></script>
+<script src="./js/new-post.js"></script>

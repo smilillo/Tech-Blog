@@ -100,7 +100,7 @@ router.put('/:id', withAuth, (req, res) => {
 
 // delete post route
 router.delete('/:id', withAuth, (req, res) => {
-  Project.destroy({
+  Post.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,

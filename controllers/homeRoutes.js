@@ -34,7 +34,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/post/:id', (req, res) => {
-  Post.findOne(req.params.id, {
+  Post.findOne({
+    where: { id: req.params.id}, 
+    attributes: [
+      'id', 'title', 'post-content'
+    ],
       include: [
         {
           model: User,
@@ -79,5 +83,7 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
   res.render('signup');
 })
+
+
 
 module.exports = router;
