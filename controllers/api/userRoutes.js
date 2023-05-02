@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
         req.session.username = data.username;
         req.session.logged_in = true;
   
-        res.json(userData);
+        res.json(data);
       });
   })
   .catch (err => {
@@ -57,7 +57,7 @@ router.post('/login', (req, res) => {
       res.status(400).json({ message: 'Incorrect username or password, please try again' });
       return;
     }
-    const validPassword = userData.checkPassword(req.body.password);
+    const validPassword = data.checkPassword(req.body.password);
 
     if (!validPassword) {
       res

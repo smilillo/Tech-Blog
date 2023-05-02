@@ -1,14 +1,22 @@
-{{!-- <div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
-  </p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
-</div> --}}
+<div class="card">
+  <h2>Create New Post</h2>
+   <form class="form new-post-form">
+        <div class="field">
+          <label class="label" id="post-title">Title</label>
+            <div class="control">
+              <input class="input" type="text">
+            </div>
+        </div>
+        <div class="field">
+          <label class="label" id="post-content">Content</label>
+            <div class="control">
+              <input class="input" type="text">
+            </div>
+        </div>
+        <div>
+          <button class="button" type="submit">Create!</button>
+        </div>
+      </form>
+</div>
+
+<script src="../public/js/new-post.js"></script>

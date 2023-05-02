@@ -5,26 +5,31 @@ const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
   Post.findAll({
+      where: {user_id: req.session.user_id},
+      attributes: [
+        'id', 'title', 'post_text', 'user_id'
+      ],
       include: [
         {
-          model: User,
-          attributes: ['username'],
-        },
-        {
           model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id'],
+          attributes: ['id', 'comment_text', 'user_id', 'post_id'],
           include: {
               model: User,
               attributes: ['username']
           }
+        },
+        {
+          model: User,
+          attributes: ['username'],
         }
       ],
     })
     .then(data => {
       const posts = data.map((post) => post.get({ plain: true }));
+      console.log(posts);
       res.render('dashboard', { 
         posts, 
-        logged_in: req.session.logged_in 
+        loggedIn: req.session.logged_in 
       });
     })
     .catch(err => {
