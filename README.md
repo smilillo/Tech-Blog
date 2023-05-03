@@ -24,6 +24,7 @@ https://github.com/smilillo/Tech-Blog
 
 ### Deployed Application:
 [Link to Deployed Heroku App](https://warm-depths-88596.herokuapp.com/)
+Current deployment is not functioning correctly. Application can be view via installation instructions above.
 
 ## Tests
 N/A
