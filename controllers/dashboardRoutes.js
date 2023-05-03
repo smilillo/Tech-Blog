@@ -70,11 +70,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     })
   });
 
-  router.get('/new', (req, res) => {
-    res.render('new-post');
-  });
-
-  router.get('/create/', withAuth, (req, res) => {
+  router.get('/new', withAuth, (req, res) => {
     Post.findAll({
       where: {
         user_id: req.session.user_id
@@ -82,13 +78,12 @@ router.get('/edit/:id', withAuth, (req, res) => {
       attributes: [
         'id',
         'title',
-        'created_at',
-        'post_content'
+        'post_text'
       ],
       include: [
         {
           model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          attributes: ['id', 'comment_text', 'post_id', 'user_id'],
           include: {
             model: User,
             attributes: ['username']
