@@ -10,11 +10,10 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body>
-  <div class="wrapper">
-    <header class="display-flex justify-space-between align-center p-2">
+<body class="has-background-success-light">
+    <header>
       <div>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
+        <nav class="navbar has-background-success-light" role="navigation" aria-label="main navigation">
           <a class="navbar-item" href="/">Home</a>
           <a class="navbar-item" href="/dashboard">Dashboard</a>
           {{#if logged_in}}
@@ -24,9 +23,9 @@
           {{/if}}
         </nav>
       </div>
-      <h1 class="has-text-weight-bold has-text-black">
-        <a href="/">Tech Blog!</a>
-      </h1>
+        <h1 class="has-text-weight-bold is-size-1 has-text-centered">
+         <a href="/">Tech Blog!</a>
+        </h1>
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
