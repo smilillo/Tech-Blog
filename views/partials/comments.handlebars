@@ -1,10 +1,12 @@
-<div class="card-header">
+<div class="card my-5">
     {{#each this}}
-    <div>
-        {{user.username}}
-    </div>
-    <div>
-        {{comment_text}}
+    <div class="card-content">
+        <div class="media-content">
+            <p class="subtitle is-4 has-text-left has-text-weight-semibold">{{user.username}}:</p>
+        </div>
+        <div>
+            <p class="has-text-left">{{comment_text}}</p>
+        </div>
     </div>
     {{/each}}
 </div>
